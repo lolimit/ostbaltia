@@ -147,7 +147,7 @@ body{background:linear-gradient(180deg,#dceaf7 0%,#f4f7fb 44%,#eaf0f6 100%);colo
 }
 
 </style>
-</head>
+</head><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <body>
 <div class="topline"></div>
 <div class="utility"><div class="wrap"><span>ОФИЦИАЛЬНЫЙ ИНФОРМАЦИОННЫЙ ПОРТАЛ</span><span>Остбалтийская Республика · 1991</span></div></div>
@@ -369,8 +369,8 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click'
 <script>
 // Вставь сюда Project URL и anon/public key из Supabase → Project Settings → API.
 // Никогда не вставляй сюда service_role key.
-const SUPABASE_URL = 'ВСТАВЬТЕ_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'ВСТАВЬТЕ_SUPABASE_ANON_PUBLIC_KEY';
+const SUPABASE_URL = 'https://dbdgqoqqrpdyjrmxkmfb.supabase.co/rest/v1/';
+const SUPABASE_ANON_KEY = 'sb_publishable_IG1zQ9bXPvOIN79keB3Luw__A3_hBJf';
 let supabaseClient = null;
 let authMode = 'register';
 
