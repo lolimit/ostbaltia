@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#102b4e">
-<title>Остбалтийская Республика — государственный портал</title>
+<title>Остбалтийская Республика — государственный портал 1.0</title>
 <style>
 :root{--navy:#102b4e;--blue:#245b8e;--blue2:#dceaf5;--gold:#c9a45e;--ink:#1d2b39;--muted:#718091;--line:#dce3e9;--bg:#f1f4f7;--white:#fff;--green:#39785c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input,textarea,select{font:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}
@@ -47,6 +47,43 @@ footer{background:#091b30;color:#c4d0dc;padding:27px 0}.foot{display:flex;justif
 #profileForm label{display:block;font-size:12px;font-weight:700;color:#42566a;margin:10px 0}
 #profileForm input{display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #ccd6df;border-radius:6px;background:#fff;color:#24384b}
 @media(max-width:520px){.navrow{width:100%;padding:0 10px}.navitems{gap:0}.navbtn{padding:16px 10px;font-size:11px}.account{padding:8px 9px;font-size:10px}}
+
+
+.news-search{margin:0 0 10px}.news-search input{width:100%;max-width:440px;border:1px solid var(--line);border-radius:7px;padding:10px 12px;font:12px Arial,sans-serif;background:#fff;color:#20364b}
+
+/* Ostbaltia 1.0 — electronic reception */
+.appeals-panel{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#fff,#f4f7fa)}
+.appeals-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:16px}
+.appeals-heading h2{font:600 25px Georgia,serif;color:var(--navy);margin:4px 0}
+.appeals-heading p{font-size:12px;color:var(--muted);margin:0}
+.eyebrow{font-size:9px;letter-spacing:1.5px;font-weight:800;color:#71869a}
+.appeals-refresh{border:1px solid var(--line);background:#fff;color:var(--navy);padding:8px 11px;border-radius:6px;font-size:11px;font-weight:700}
+.appeals-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+.appeal-form,.appeal-list-wrap{background:#fff;border:1px solid var(--line);border-radius:9px;padding:16px;min-width:0}
+.appeal-form h3,.appeal-list-head h3{margin:0 0 12px;color:var(--navy);font:600 17px Georgia,serif}
+.appeal-form label{display:grid;gap:5px;margin:10px 0;color:#43586c;font-size:11px;font-weight:750}
+.appeal-form input,.appeal-form select,.appeal-form textarea{width:100%;border:1px solid var(--line);border-radius:6px;padding:10px;font:12px Arial,sans-serif;background:#fff;color:#20364b}
+.appeal-form textarea{resize:vertical;min-height:110px}
+.appeal-submit{width:100%;border:0;border-radius:6px;background:var(--navy);color:#fff;padding:11px;font-weight:750;font-size:12px}
+.appeal-submit:disabled{opacity:.55}
+.appeal-hint{font-size:10px;color:var(--muted);line-height:1.5;margin:9px 0 0}
+.appeal-list-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.appeal-list-head span{font-size:10px;background:#edf2f6;border-radius:20px;padding:4px 8px;color:#52677b}
+.appeal-card{border:1px solid var(--line);border-radius:7px;padding:12px;margin:9px 0}
+.appeal-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.appeal-card h4{margin:7px 0 4px;color:var(--navy);font-size:13px}
+.appeal-card p{font-size:11px;line-height:1.5;color:#596b7b;margin:5px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.appeal-meta{font-size:9px;color:#8291a0}
+.appeal-status{font-size:9px;font-weight:800;padding:4px 7px;border-radius:20px;background:#edf2f6;color:#53687b}
+.appeal-status[data-status="В работе"]{background:#fff2d9;color:#875b12}
+.appeal-status[data-status="Рассмотрено"]{background:#e5f3ea;color:#28633d}
+.appeal-status[data-status="Отклонено"]{background:#fbe9e8;color:#8a3934}
+.appeal-staff-controls{display:flex;gap:7px;align-items:center;margin-top:9px}
+.appeal-staff-controls select,.appeal-staff-controls input{min-width:0;flex:1;border:1px solid var(--line);border-radius:5px;padding:7px;font-size:10px}
+.appeal-staff-controls button{border:0;border-radius:5px;background:#eaf1f7;color:var(--navy);padding:7px 9px;font-size:10px;font-weight:800}
+.appeal-empty{font-size:11px;color:var(--muted);padding:14px 0}
+@media(max-width:700px){.appeals-grid{grid-template-columns:1fr}.appeals-panel{padding:14px}.appeals-heading{flex-direction:column}.appeals-refresh{width:100%}.appeal-staff-controls{flex-wrap:wrap}}
+
 </style>
 
 <style id="ostbaltia-redesign-v6">
@@ -227,16 +264,35 @@ body{background:linear-gradient(180deg,#dceaf7 0%,#f4f7fb 44%,#eaf0f6 100%);colo
 <section class="view" id="services"><div class="section-photo-banner" style="--section-photo:url('https://upload.wikimedia.org/wikipedia/commons/f/f8/Snelli_Park_1991_%281%29.jpg')"><span>Государственные услуги</span><small>Историческая фотография эпохи · иллюстрация RP</small></div>
 <div class="page-head"><div><h1>Государственные сервисы</h1><p>Инструменты для взаимодействия граждан, организаций и государственных учреждений.</p></div><div class="head-mark">▣</div></div>
 <div class="service-list">
-<div class="service"><h3>Обращение граждан</h3><p>Порядок направления предложений, заявлений и обращений в органы власти.</p><button onclick="toast('Электронная приёмная будет подключена позднее')">Открыть сервис →</button></div>
+<div class="service"><h3>Электронная приёмная</h3><p>Направляйте заявления, предложения и вопросы в государственные учреждения. Отслеживайте статус рассмотрения.</p><button onclick="openAppeals()">Открыть приёмную →</button></div>
 <div class="service"><h3>Справочник учреждений</h3><p>Министерства, ведомства, государственные учреждения и их контакты.</p><button onclick="go('power','cabinet')">Смотреть учреждения →</button></div>
 <div class="service"><h3>Государственные документы</h3><p>Справочная информация о документах и порядке их оформления.</p><button onclick="go('law','register')">Перейти к реестру →</button></div>
 <div class="service"><h3>Официальные объявления</h3><p>Публикации государственных органов и важные сообщения.</p><button onclick="go('news')">Читать объявления →</button></div>
 <div class="service"><h3>Вопросы и ответы</h3><p>Ответы на часто задаваемые вопросы о государственном устройстве.</p><button onclick="toast('Раздел вопросов и ответов готовится')">Открыть справку →</button></div>
 <div class="service"><h3>Контакты и приёмные</h3><p>Информация о порядке связи с государственными органами.</p><button onclick="toast('Контактные данные будут добавлены администратором')">Подробнее →</button></div>
-</div></section>
+</div>
+<div class="appeals-panel" id="appealsPanel">
+  <div class="appeals-heading"><div><span class="eyebrow">ГОСУДАРСТВЕННЫЙ СЕРВИС</span><h2>Электронная приёмная</h2><p>Обращения доступны автору и уполномоченным сотрудникам портала.</p></div><button class="appeals-refresh" type="button" onclick="loadAppeals()">Обновить список</button></div>
+  <div class="appeals-grid">
+    <form class="appeal-form" id="appealForm" onsubmit="submitAppeal(event)">
+      <h3>Новое обращение</h3>
+      <label>Тип обращения<select id="appealCategory" required><option value="Заявление">Заявление</option><option value="Предложение">Предложение</option><option value="Вопрос">Вопрос</option><option value="Жалоба">Жалоба</option></select></label>
+      <label>Тема<input id="appealSubject" maxlength="120" required placeholder="Кратко обозначьте тему"></label>
+      <label>Текст обращения<textarea id="appealMessage" rows="5" maxlength="5000" required placeholder="Опишите ваш вопрос или предложение"></textarea></label>
+      <button class="appeal-submit" id="appealSubmit" type="submit">Отправить обращение</button>
+      <p class="appeal-hint">Для отправки необходимо войти в RP-профиль. Не указывайте реальные личные или контактные данные.</p>
+    </form>
+    <div class="appeal-list-wrap">
+      <div class="appeal-list-head"><h3 id="appealListTitle">Мои обращения</h3><span id="appealCount">0</span></div>
+      <div id="appealList" class="appeal-list"><p class="appeal-empty">Войдите в профиль, чтобы просмотреть обращения.</p></div>
+    </div>
+  </div>
+</div>
+</section>
 
 <section class="view" id="news"><div class="section-photo-banner" style="--section-photo:url('https://upload.wikimedia.org/wikipedia/commons/f/fe/Tallinna_lauluv%C3%A4ljak_1991_%281%29.jpg')"><span>Новости Остбалтийской Республики</span><small>Историческая фотография эпохи · иллюстрация RP</small></div>
 <div class="page-head"><div><h1>Новости и объявления</h1><p>Официальная информационная лента Остбалтийской Республики. Публикации органов власти и государственная хроника.</p></div><div class="head-mark">▤</div></div>
+<div class="news-search"><input id="newsSearch" type="search" placeholder="Поиск по новостям и объявлениям…" aria-label="Поиск по новостям"></div>
 <div class="newsfilters"><button class="filter active" data-filter="all">Все публикации</button><button class="filter" data-filter="government">Правительство</button><button class="filter" data-filter="law">Законодательство</button><button class="filter" data-filter="state">Государство</button></div>
 <div id="articles">
 <article class="article" data-category="government"><div class="date">18 МАРТА 1991 · ПРАВИТЕЛЬСТВО</div><h3>Опубликовано заявление о приоритетах государственной политики</h3><p>Кабинет министров обозначил направления работы государственных учреждений на ближайший период. Материал является частью демонстрационной хроники RP-проекта.</p></article>
@@ -362,7 +418,21 @@ const initialParts=location.hash.replace(/^#/,'').split('-');if(initialParts[0])
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2500)}
 function filterDocs(){const q=document.getElementById('lawSearch').value.toLowerCase().trim();let n=0;document.querySelectorAll('#docList .doc').forEach(d=>{const ok=d.textContent.toLowerCase().includes(q);d.style.display=ok?'flex':'none';if(ok)n++});document.getElementById('noDocs').style.display=n?'none':'block'}
 document.getElementById('lawSearch').addEventListener('keydown',e=>{if(e.key==='Enter')filterDocs()});
-document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('#articles .article').forEach(a=>a.style.display=b.dataset.filter==='all'||a.dataset.category===b.dataset.filter?'block':'none')}));
+let activeNewsFilter='all';
+function applyNewsFilters(){
+ const q=(document.getElementById('newsSearch')?.value||'').trim().toLowerCase();
+ document.querySelectorAll('#articles .article').forEach(a=>{
+  const categoryOk=activeNewsFilter==='all'||a.dataset.category===activeNewsFilter;
+  const textOk=!q||a.textContent.toLowerCase().includes(q);
+  a.style.display=categoryOk&&textOk?'block':'none';
+ });
+}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+ activeNewsFilter=b.dataset.filter;
+ document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));
+ applyNewsFilters();
+}));
+document.getElementById('newsSearch')?.addEventListener('input',applyNewsFilters);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -528,6 +598,87 @@ function saveVisualEdits(){if(!requirePortalRole('moderator'))return;if(visualEd
 function resetVisualEdits(){if(!requirePortalRole('moderator'))return;localStorage.removeItem(VISUAL_EDIT_KEY);location.reload()}
 applyVisualEdits();
 
+/* Ostbaltia 1.0 — Supabase electronic reception */
+const APPEALS_TABLE='portal_appeals';
+function openAppeals(){
+  go('services');
+  document.getElementById('appealsPanel')?.scrollIntoView({behavior:'smooth',block:'start'});
+  loadAppeals();
+}
+function appealStatusLabel(status){return status||'Получено'}
+function appealDate(value){
+  try{return new Date(value).toLocaleString('ru-RU',{dateStyle:'medium',timeStyle:'short'})}
+  catch(e){return value||''}
+}
+async function loadAppeals(){
+  const list=document.getElementById('appealList');
+  const count=document.getElementById('appealCount');
+  const title=document.getElementById('appealListTitle');
+  if(!list)return;
+  if(!supabaseClient){list.innerHTML='<p class="appeal-empty">Сервис ожидает подключения Supabase.</p>';return;}
+  const {data:{user},error:userError}=await supabaseClient.auth.getUser();
+  if(userError||!user){list.innerHTML='<p class="appeal-empty">Войдите в RP-профиль, чтобы просмотреть и отправить обращения.</p>';count.textContent='0';return;}
+  const staff=['moderator','administrator','creator'].includes(currentPortalRole);
+  title.textContent=staff?'Обращения граждан':'Мои обращения';
+  list.innerHTML='<p class="appeal-empty">Загружаем обращения…</p>';
+  let query=supabaseClient.from(APPEALS_TABLE).select('*').order('created_at',{ascending:false}).limit(100);
+  if(!staff)query=query.eq('created_by',user.id);
+  const {data,error}=await query;
+  if(error){list.innerHTML='<p class="appeal-empty">Не удалось загрузить список. Проверьте, что выполнен SQL для версии 1.0.</p>';count.textContent='—';return;}
+  count.textContent=String(data.length);
+  if(!data.length){list.innerHTML='<p class="appeal-empty">Пока обращений нет. Вы можете отправить первое через форму.</p>';return;}
+  list.replaceChildren();
+  data.forEach(item=>{
+    const card=document.createElement('article');card.className='appeal-card';
+    const top=document.createElement('div');top.className='appeal-card-top';
+    const meta=document.createElement('span');meta.className='appeal-meta';
+    meta.textContent=(item.category||'Обращение')+' · '+appealDate(item.created_at)+(staff?' · ID '+String(item.created_by||'').slice(0,8):'');
+    const status=document.createElement('span');status.className='appeal-status';status.dataset.status=appealStatusLabel(item.status);status.textContent=appealStatusLabel(item.status);
+    top.append(meta,status);
+    const heading=document.createElement('h4');heading.textContent=item.subject||'Без темы';
+    const body=document.createElement('p');body.textContent=item.message||'';
+    card.append(top,heading,body);
+    if(item.staff_note){const note=document.createElement('p');note.textContent='Ответ администрации: '+item.staff_note;card.append(note);}
+    if(staff){
+      const controls=document.createElement('div');controls.className='appeal-staff-controls';
+      const select=document.createElement('select');
+      ['Получено','В работе','Рассмотрено','Отклонено'].forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;o.selected=s===appealStatusLabel(item.status);select.append(o)});
+      const noteInput=document.createElement('input');noteInput.maxLength=500;noteInput.placeholder='Комментарий (необязательно)';noteInput.value=item.staff_note||'';
+      const save=document.createElement('button');save.type='button';save.textContent='Сохранить';
+      save.addEventListener('click',()=>updateAppeal(item.id,select.value,noteInput.value,save));
+      controls.append(select,noteInput,save);card.append(controls);
+    }
+    list.append(card);
+  });
+}
+async function submitAppeal(event){
+  event.preventDefault();
+  if(!supabaseClient){toast('Сервис пока не подключён');return;}
+  const {data:{user},error:userError}=await supabaseClient.auth.getUser();
+  if(userError||!user){toast('Сначала войдите в RP-профиль');openAccountMode('login');return;}
+  const category=document.getElementById('appealCategory').value;
+  const subject=document.getElementById('appealSubject').value.trim();
+  const message=document.getElementById('appealMessage').value.trim();
+  if(!subject||!message){toast('Заполните тему и текст обращения');return;}
+  const button=document.getElementById('appealSubmit');button.disabled=true;button.textContent='Отправка…';
+  try{
+    const {error}=await supabaseClient.from(APPEALS_TABLE).insert({created_by:user.id,category,subject,message,status:'Получено'});
+    if(error)throw error;
+    document.getElementById('appealForm').reset();toast('Обращение отправлено');await loadAppeals();
+  }catch(err){toast(err.message?.includes('portal_appeals')?'Сначала выполните SQL-настройку версии 1.0':('Ошибка отправки: '+(err.message||'неизвестная ошибка')));}
+  finally{button.disabled=false;button.textContent='Отправить обращение';}
+}
+async function updateAppeal(id,status,staffNote,button){
+  if(!['moderator','administrator','creator'].includes(currentPortalRole)){toast('Недостаточно прав');return;}
+  button.disabled=true;
+  const {error}=await supabaseClient.from(APPEALS_TABLE).update({status,staff_note:staffNote.trim()||null}).eq('id',id);
+  button.disabled=false;
+  if(error){toast('Не удалось обновить обращение: '+error.message);return;}
+  toast('Статус обращения обновлён');loadAppeals();
+}
+if(supabaseClient){supabaseClient.auth.onAuthStateChange(()=>{if(document.getElementById('appealsPanel'))loadAppeals()});}
+
 </script>
 
+<!-- Ostbaltia Portal v1.0 -->
 </body></html>
