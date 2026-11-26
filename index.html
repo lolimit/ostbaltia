@@ -1171,7 +1171,7 @@ main.wrap{width:calc(100% - 24px)!important;max-width:100%!important}
 .admin-content input[type=color]{height:42px;padding:4px}.editor-picked{outline:3px solid #d39a27!important;outline-offset:3px!important;cursor:pointer!important}.editor-block-card{border:1px solid #dce5ef;border-radius:10px;padding:12px;margin:8px 0;background:#f8fafc}.editor-block-card strong{display:block;color:#173c60;margin-bottom:5px}.editor-block-card p{font-size:12px;color:#64788b;margin:0 0 9px;white-space:pre-wrap}.editor-block-card button{border:0;border-radius:7px;padding:6px 9px;margin:2px;background:#e8eff7;color:#204b73;font-weight:700}.editor-block-card button.danger{background:#fbeaea;color:#8d3030}.editor-history-item{font-size:12px;padding:9px;border:1px solid #e1e8ef;border-radius:8px;margin:6px 0}
 </style>
 
-
+<script>
 /* Full visual editor: safe data-driven site customization */
 const EDITOR_CONFIG_KEY='ostbaltia_full_editor_config_v1';
 let editorConfig={design:{},blocks:[],pages:[],elementEdits:[]};
@@ -1208,4 +1208,26 @@ editorLoadLocal();editorInitFields();applyEditorBlocks();
 async function loadEditorConfigCloud(){if(!supabaseClient)return;try{const {data,error}=await supabaseClient.from('portal_editor_state').select('config').eq('id','main').maybeSingle();if(!error&&data?.config){editorConfig={...editorConfig,...data.config};localStorage.setItem(EDITOR_CONFIG_KEY,JSON.stringify(editorConfig));editorLoadLocal();applyEditorDesignFromStored();applyEditorBlocks()}}catch(e){}}
 loadEditorConfigCloud();
 
+// Navigation reliability patch: handle submenu clicks through delegation.
+document.addEventListener('click', function(event){
+  const subButton = event.target.closest('[data-subnav]');
+  if (subButton) {
+    const section = subButton.closest('.view');
+    if (section && section.id) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      go(section.id, subButton.dataset.subnav);
+      return;
+    }
+  }
+  const menuButton = event.target.closest('.drop [data-view][data-sub]');
+  if (menuButton) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    go(menuButton.dataset.view, menuButton.dataset.sub);
+    return;
+  }
+}, true);
+
+</script>
 </body></html>
