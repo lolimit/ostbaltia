@@ -86,6 +86,8 @@ footer{background:#091b30;color:#c4d0dc;padding:27px 0}.foot{display:flex;justif
 
 
 .admin-content input[type=color]{height:42px;padding:4px}.editor-picked{outline:3px solid #d39a27!important;outline-offset:3px!important;cursor:pointer!important}.editor-block-card{border:1px solid #dce5ef;border-radius:10px;padding:12px;margin:8px 0;background:#f8fafc}.editor-block-card strong{display:block;color:#173c60;margin-bottom:5px}.editor-block-card p{font-size:12px;color:#64788b;margin:0 0 9px;white-space:pre-wrap}.editor-block-card button{border:0;border-radius:7px;padding:6px 9px;margin:2px;background:#e8eff7;color:#204b73;font-weight:700}.editor-block-card button.danger{background:#fbeaea;color:#8d3030}.editor-history-item{font-size:12px;padding:9px;border:1px solid #e1e8ef;border-radius:8px;margin:6px 0}
+
+.legal-doc{cursor:pointer;transition:background .15s;padding:12px 10px;border-radius:7px}.legal-doc:hover{background:#f3f6f9}.legal-doc .doc-open{margin-left:auto;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:6px;padding:7px 11px;font-size:11px;font-weight:750;white-space:nowrap}.pill.unpublished{background:#fff2df;color:#936018}.legal-reader-backdrop{position:fixed;inset:0;background:#101d2dbb;z-index:9998;display:none;align-items:center;justify-content:center;padding:18px}.legal-reader-backdrop.open{display:flex}.legal-reader{width:min(760px,100%);max-height:86vh;overflow:auto;background:#fff;border-radius:12px;padding:24px;box-shadow:0 20px 70px #0005}.legal-reader h2{font:600 26px Georgia,serif;color:var(--navy);margin:0 0 8px}.legal-reader .reader-meta{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0 18px}.legal-reader .reader-body{border-top:1px solid var(--line);padding-top:17px;color:#46596b;font-size:14px;line-height:1.7;white-space:pre-wrap}.legal-reader .reader-actions{display:flex;justify-content:flex-end;margin-top:20px}.legal-reader .reader-close{border:0;background:var(--navy);color:#fff;border-radius:6px;padding:10px 16px;font-weight:700}
 </style>
 
 <style id="ostbaltia-redesign-v6">
@@ -401,7 +403,7 @@ body{background:linear-gradient(180deg,#dceaf7 0%,#f4f7fb 44%,#eaf0f6 100%);colo
 <div class="page-head"><div><h1>Законодательство</h1><p>Система нормативных актов, правовые документы и официальные публикации Остбалтийской Республики.</p></div><div class="head-mark">§</div></div>
 <div class="layout2"><aside class="sidenav"><strong>Правовая система</strong><button class="selected" data-subnav="constitution">Конституция</button><button data-subnav="laws">Законы и акты</button><button data-subnav="register">Реестр документов</button></aside>
 <div class="mainpanel">
-<div class="subview active" id="law-constitution"><h2>Конституция республики</h2><p class="intro">Основной закон Остбалтийской Республики. Здесь размещается утверждённый текст конституции и сведения о поправках.</p><div class="info"><h3>Конституционный документ</h3><p>Текст конституции ещё не добавлен. Администратор проекта может разместить главы, статьи и историю изменений.</p></div><p style="margin-top:14px"><button class="smallbtn" onclick="toast('Текст конституции ещё не опубликован')">Открыть текст документа</button></p></div>
+<div class="subview active" id="law-constitution"><h2>Конституция республики</h2><p class="intro">Основной закон Остбалтийской Республики. Здесь размещается утверждённый текст конституции и сведения о поправках.</p><div class="info"><h3>Конституционный документ</h3><p>Текст конституции ещё не добавлен. Администратор проекта может разместить главы, статьи и историю изменений.</p></div><p style="margin-top:14px"><button class="smallbtn" onclick="openLegalDocument('Конституция Остбалтийской Республики','Конституция','Не опубликовано')">Открыть текст документа</button></p></div>
 <div class="subview" id="law-laws"><h2>Законы и нормативные акты</h2><p class="intro">Публикации законодательных и исполнительных органов.</p><div class="doc"><div><strong>Закон о государственном устройстве</strong><small>Демонстрационная запись · 1991</small></div><span class="pill">Закон</span></div><div class="doc"><div><strong>Закон о Кабинете министров</strong><small>Демонстрационная запись · 1991</small></div><span class="pill">Закон</span></div><div class="doc"><div><strong>Положение о порядке рассмотрения обращений</strong><small>Демонстрационная запись · 1991</small></div><span class="pill">Положение</span></div></div>
 <div class="subview" id="law-register"><h2>Реестр нормативных документов</h2><p class="intro">Поиск по названию опубликованного документа.</p><div class="doc-tools"><input id="lawSearch" placeholder="Введите название документа…"><button class="smallbtn" onclick="filterDocs()">Найти</button></div><div id="docList"><div class="doc"><div><strong>Конституция Остбалтийской Республики</strong><small>Основной закон · проект документа</small></div><span class="pill">Конституция</span></div><div class="doc"><div><strong>Закон о государственном устройстве</strong><small>Закон · демонстрационная запись</small></div><span class="pill">Закон</span></div><div class="doc"><div><strong>Закон о Кабинете министров</strong><small>Закон · демонстрационная запись</small></div><span class="pill">Закон</span></div><div class="doc"><div><strong>Положение о порядке рассмотрения обращений</strong><small>Постановление · демонстрационная запись</small></div><span class="pill">Положение</span></div></div><p id="noDocs" class="intro" style="display:none">Документы не найдены.</p></div>
 </div></div></section>
@@ -582,6 +584,8 @@ body{background:linear-gradient(180deg,#dceaf7 0%,#f4f7fb 44%,#eaf0f6 100%);colo
  </div>
 </div>
 
+
+<div class="legal-reader-backdrop" id="legalReader" role="dialog" aria-modal="true" aria-labelledby="legalReaderTitle" onclick="if(event.target===this)closeLegalDocument()"><div class="legal-reader"><h2 id="legalReaderTitle">Документ</h2><div class="reader-meta"><span class="pill" id="legalReaderType">Документ</span><span class="pill unpublished" id="legalReaderStatus">Не опубликовано</span></div><div class="reader-body" id="legalReaderBody"></div><div class="reader-actions"><button class="reader-close" onclick="closeLegalDocument()">Закрыть</button></div></div></div>
 <footer><div class="wrap foot"><div><b>Остбалтийская Республика</b><p>Официальный портал вымышленного государства для текстового ролевого проекта. Материалы, должности, документы и учреждения являются частью игрового мира Остбалтийской Республики.</p></div><small>© 1991 · Остбалтийская Республика<br>Портал · Версия 2.0</small></div></footer>
 <div class="toast" id="toast" role="status"></div>
 <script>
@@ -1229,5 +1233,31 @@ document.addEventListener('click', function(event){
   }
 }, true);
 
+
+// Document reader: every legal register entry opens a readable document view.
+function openLegalDocument(title, type, status){
+ const modal=document.getElementById('legalReader');
+ if(!modal)return;
+ document.getElementById('legalReaderTitle').textContent=title||'Документ';
+ document.getElementById('legalReaderType').textContent=type||'Документ';
+ document.getElementById('legalReaderStatus').textContent=status||'Не опубликовано';
+ document.getElementById('legalReaderBody').textContent='Полный текст этого документа пока не опубликован.\n\nДокумент зарегистрирован в перечне материалов ролевого проекта. После добавления текста через редактор он будет доступен для чтения здесь.';
+ modal.classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeLegalDocument(){const modal=document.getElementById('legalReader');if(modal)modal.classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+ const row=e.target.closest('.doc');
+ if(!row)return;
+ const title=row.querySelector('strong')?.textContent?.trim()||'Документ';
+ const type=row.querySelector('.pill')?.textContent?.trim()||'Документ';
+ e.preventDefault(); openLegalDocument(title,type,'Не опубликовано');
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLegalDocument();});
+document.querySelectorAll('#law-laws .doc,#docList .doc').forEach(row=>{
+ row.classList.add('legal-doc');
+ const pill=row.querySelector('.pill');
+ if(pill){pill.textContent='Не опубликовано';pill.classList.add('unpublished');}
+ if(!row.querySelector('.doc-open')){const b=document.createElement('button');b.type='button';b.className='doc-open';b.textContent='Открыть';row.append(b);}
+});
 </script>
 </body></html>
